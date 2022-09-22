@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using TKMailNotificationAPI.Areas.HelpPage.ModelDescriptions;
+using MailNotificationAPI.Areas.HelpPage.ModelDescriptions;
 
-namespace TKMailNotificationAPI.Areas.HelpPage.Models
+namespace MailNotificationAPI.Areas.HelpPage.Models
 {
     /// <summary>
     /// The model that represents an API displayed on the help page.

@@ -1,6 +1,6 @@
 using System;
 
-namespace TKMailNotificationAPI.Areas.HelpPage.ModelDescriptions
+namespace MailNotificationAPI.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterAnnotation
     {

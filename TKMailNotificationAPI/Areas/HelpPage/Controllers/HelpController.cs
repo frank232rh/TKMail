@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using TKMailNotificationAPI.Areas.HelpPage.ModelDescriptions;
-using TKMailNotificationAPI.Areas.HelpPage.Models;
+using MailNotificationAPI.Areas.HelpPage.ModelDescriptions;
+using MailNotificationAPI.Areas.HelpPage.Models;
 
-namespace TKMailNotificationAPI.Areas.HelpPage.Controllers
+namespace MailNotificationAPI.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

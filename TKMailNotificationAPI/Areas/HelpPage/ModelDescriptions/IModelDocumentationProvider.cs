@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace TKMailNotificationAPI.Areas.HelpPage.ModelDescriptions
+namespace MailNotificationAPI.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

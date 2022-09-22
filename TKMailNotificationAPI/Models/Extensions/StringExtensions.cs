@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 
-namespace TKMailNotificationAPI.Models.Extensions
+namespace MailNotificationAPI.Models.Extensions
 {
     public static class StringExtensions
     {

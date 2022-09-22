@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace TKMailNotificationAPI
+namespace MailNotificationAPI
 {
     public class FilterConfig
     {

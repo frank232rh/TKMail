@@ -9,27 +9,16 @@ using System.Net.Mime;
 using System.Text;
 using System.Web;
 using TKMail.Data.Entities;
-using TKMailNotificationAPI.Abstract;
-using TKMailNotificationAPI.Helpers;
+using MailNotificationAPI.Abstract;
+using MailNotificationAPI.Helpers;
 
-namespace TKMailNotificationAPI.Concrete
+namespace MailNotificationAPI.Concrete
 {
     public class NotificationRepository : iNotificationRepository
     {
-        public int SendMail(eMailMessage eMailMessage, int idApp)
+        public int SendMail(eMailMessage eMailMessage, MailConfig mailConfig)
         {
             int response = 0;
-            MailConfig mailConfig = new MailConfig();
-            try
-            {
-                mailConfig = GetMailConfig(idApp);
-            }
-            catch (Exception ex)
-            {
-                Models.Extensions.StringExtensions.createLog(ex.Message, "SendMail/GetMailConfig", "26");
-                LogMethods.writeException(ex, "TKMail.NotificationAPI.Concrete.NotificationRepository.SendMail/GetMailConfig");
-            }
-
             try
             {
                 #region Production
@@ -105,9 +94,5 @@ namespace TKMailNotificationAPI.Concrete
             return response;
         }
 
-        private MailConfig GetMailConfig(int v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

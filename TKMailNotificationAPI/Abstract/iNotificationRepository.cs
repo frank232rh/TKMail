@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using TKMail.Data.Entities;
 
-namespace TKMailNotificationAPI.Abstract
+namespace MailNotificationAPI.Abstract
 {
     public interface iNotificationRepository
     {
-        int SendMail(eMailMessage eMailMessage, int idApp);
+        int SendMail(eMailMessage eMailMessage, MailConfig mailConfig);
     }
 }

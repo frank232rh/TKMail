@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using TKMailNotificationAPI.Areas.HelpPage.ModelDescriptions;
-using TKMailNotificationAPI.Areas.HelpPage.Models;
+using MailNotificationAPI.Areas.HelpPage.ModelDescriptions;
+using MailNotificationAPI.Areas.HelpPage.Models;
 
-namespace TKMailNotificationAPI.Areas.HelpPage
+namespace MailNotificationAPI.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

@@ -177,6 +177,7 @@ namespace TKMail.Data.Concrete
                         regreso.MailFrom = read.GetString(read.GetOrdinal("MailFrom"));
                         regreso.MailTo = read.GetString(read.GetOrdinal("MailTo"));
                         regreso.TemplateHTML = read.GetString(read.GetOrdinal("TemplateHTML"));
+                        regreso.IdApp = read.GetInt32(read.GetOrdinal("IdApp"));
                         if (regreso.Id > 0)
                         {
                             regreso.Attachments = GetAttach(regreso.Id);
@@ -237,5 +238,51 @@ namespace TKMail.Data.Concrete
             }
             return regreso;
         }
+
+        public List<eMailMessage> GetNotSentNotification()
+        {
+            List<eMailMessage> regreso = new List<eMailMessage>();
+            try
+            {
+                using (TKMailContext ctx = new TKMailContext())
+                {
+                    ctx.Database.Connection.Open();
+
+                    var command = ctx.Database.Connection.CreateCommand();
+                    command.CommandText = "[Notification].[GetNotSentNotifications]";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    var read = command.ExecuteReader();
+
+                    while (read.Read())
+                    {
+                        regreso.Add(new eMailMessage
+                        {
+                            Id = read.GetInt32(read.GetOrdinal("Id")),
+                            Subject = read.GetString(read.GetOrdinal("Subject")),
+                            MailFrom = read.GetString(read.GetOrdinal("MailFrom")),
+                            MailTo = read.GetString(read.GetOrdinal("MailTo")),
+                            TemplateHTML = read.GetString(read.GetOrdinal("TemplateHTML"))
+                        });
+                    }
+                    foreach (var item in regreso)
+                    {
+                        item.Attachments = GetAttach(item.Id);
+                    }
+                    ctx.Database.Connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                regreso = new List<eMailMessage>();
+                LogMethods.writeException(ex, "TKMail.Data.Concrete.MailRepository.GetMailConfig");
+            }
+            finally
+            {
+                GC.Collect();
+            }
+            return regreso;
+        }
+
     }
 }

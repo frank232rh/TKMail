@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace TKMailNotificationAPI.Areas.HelpPage.ModelDescriptions
+namespace MailNotificationAPI.Areas.HelpPage.ModelDescriptions
 {
     public class ComplexTypeModelDescription : ModelDescription
     {

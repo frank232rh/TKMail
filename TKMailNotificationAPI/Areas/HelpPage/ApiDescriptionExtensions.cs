@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace TKMailNotificationAPI.Areas.HelpPage
+namespace MailNotificationAPI.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

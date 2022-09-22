@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace TKMailNotificationAPI.Areas.HelpPage.ModelDescriptions
+namespace MailNotificationAPI.Areas.HelpPage.ModelDescriptions
 {
     internal static class ModelNameHelper
     {

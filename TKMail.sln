@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TKMail.MailNotificationAPI"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TKMail.Data", "TKMail.Data\TKMail.Data.csproj", "{44CA8679-8F0E-4C0C-804F-B22C1D54B2A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TKMail.NotificationService", "TKMail.NotificationService\TKMail.NotificationService.csproj", "{B194AEEE-250A-4C85-A556-1A75F5034B8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{44CA8679-8F0E-4C0C-804F-B22C1D54B2A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44CA8679-8F0E-4C0C-804F-B22C1D54B2A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44CA8679-8F0E-4C0C-804F-B22C1D54B2A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B194AEEE-250A-4C85-A556-1A75F5034B8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B194AEEE-250A-4C85-A556-1A75F5034B8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B194AEEE-250A-4C85-A556-1A75F5034B8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B194AEEE-250A-4C85-A556-1A75F5034B8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

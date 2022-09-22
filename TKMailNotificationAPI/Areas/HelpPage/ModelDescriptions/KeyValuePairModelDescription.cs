@@ -1,4 +1,4 @@
-namespace TKMailNotificationAPI.Areas.HelpPage.ModelDescriptions
+namespace MailNotificationAPI.Areas.HelpPage.ModelDescriptions
 {
     public class KeyValuePairModelDescription : ModelDescription
     {

@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace TKMailNotificationAPI.Areas.HelpPage
+namespace MailNotificationAPI.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {
