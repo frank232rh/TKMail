@@ -16,9 +16,11 @@ namespace MailNotificationAPI.Concrete
 {
     public class NotificationRepository : iNotificationRepository
     {
-        public int SendMail(eMailMessage eMailMessage, MailConfig mailConfig)
+        public Response SendMail(TKMailNotificationAPI.Models.MailData mailData)
         {
-            int response = 0;
+            TKMailNotificationAPI.Models.eMailMessage eMailMessage = mailData.message;
+            MailConfig mailConfig = mailData.config;
+            Response regreso = new Response();
             try
             {
                 #region Production
@@ -76,7 +78,9 @@ namespace MailNotificationAPI.Concrete
                     //Console.WriteLine($"Enviando email a {mail.To}...");
                     smptClient.EnableSsl = mailConfig.IsEnableSSL;
                     smptClient.Send(mail);
-                    response = 1;
+                    regreso.Resp = true;
+                    regreso.Message = "Envio correcto";
+                    regreso.IdReturn = 1;
                     //Console.WriteLine($"El email se envio correctamente.");
                 }
                 #endregion
@@ -84,6 +88,7 @@ namespace MailNotificationAPI.Concrete
             }
             catch (Exception ex)
             {
+                regreso.Message = "TKMail.NotificationAPI.Concrete.NotificationRepository.SendMail" + ex.Message;
                 Models.Extensions.StringExtensions.createLog(ex.Message, "SendMail", "36");
                 LogMethods.writeException(ex, "TKMail.NotificationAPI.Concrete.NotificationRepository.SendMail");
             }
@@ -91,7 +96,7 @@ namespace MailNotificationAPI.Concrete
             {
                 GC.Collect();
             }
-            return response;
+            return regreso;
         }
 
     }

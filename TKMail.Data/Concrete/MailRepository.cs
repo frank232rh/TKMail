@@ -262,7 +262,8 @@ namespace TKMail.Data.Concrete
                             Subject = read.GetString(read.GetOrdinal("Subject")),
                             MailFrom = read.GetString(read.GetOrdinal("MailFrom")),
                             MailTo = read.GetString(read.GetOrdinal("MailTo")),
-                            TemplateHTML = read.GetString(read.GetOrdinal("TemplateHTML"))
+                            TemplateHTML = read.GetString(read.GetOrdinal("TemplateHTML")),
+                            IdApp = read.GetInt32(read.GetOrdinal("IdApp"))
                         });
                     }
                     foreach (var item in regreso)

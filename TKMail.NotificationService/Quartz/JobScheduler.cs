@@ -26,7 +26,7 @@ namespace TKMail.NotificationService.Quartz
 
             IJobDetail job = JobBuilder.Create<LoggingJob>().Build();
 
-            string strCronExpressionNotificar= "0 5 15 ? * * *";
+            string strCronExpressionNotificar= "0 45 11 ? * * *";
             //string strCronExpressionNotificar = repository.GetGeneralConfiguration("CronExpressionNotificar").Trim();//At 15:05:00pm every day
             if (String.IsNullOrEmpty(strCronExpressionNotificar))
             {

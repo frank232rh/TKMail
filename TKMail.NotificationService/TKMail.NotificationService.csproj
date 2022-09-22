@@ -72,6 +72,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\iNotificationRepository.cs" />
+    <Compile Include="Concrete\NotificationRepository.cs" />
     <Compile Include="Entities\Extensions\ServiceBrokerExtensions.cs" />
     <Compile Include="Entities\Extensions\StringExtensions.cs" />
     <Compile Include="Entities\QueueListenerConfig.cs" />
@@ -102,5 +104,6 @@
       <Name>TKMail.MailNotificationAPI</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -163,7 +163,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\LogMethods.cs" />
+    <Compile Include="Models\eMailMessage.cs" />
     <Compile Include="Models\Extensions\StringExtensions.cs" />
+    <Compile Include="Models\MailData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

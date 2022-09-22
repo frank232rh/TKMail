@@ -1,6 +1,4 @@
-﻿using MailNotificationAPI.Abstract;
-using MailNotificationAPI.Concrete;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,11 +18,9 @@ namespace TKMail.NotificationService.MessageProcessors
         private readonly object locker = new object();
         private Queue<string> OrdIds = new Queue<string>();
         private static iMailRepository repository;
-        private static iNotificationRepository repositoryNotification;
         public QueueProcessor()
         {
             repository = new MailRepository();
-            repositoryNotification = new NotificationRepository();
             worker = new Thread(Work);
             worker.Start();
         }
@@ -52,7 +48,7 @@ namespace TKMail.NotificationService.MessageProcessors
                             MailConfig mailConfig = repository.GetMailConfig(model.IdApp);
                             if (model != null && !model.Sent)
                             {
-                                res = repositoryNotification.SendMail(model, mailConfig);
+                                res = model.sendMail(model, mailConfig).Result;
                                 if (res != 1)
                                 {
                                     //("Result was distinct to 1 " + res.ToString() + " | The result was reenqueue").createLog("QueueProcessor - Work ", "53");

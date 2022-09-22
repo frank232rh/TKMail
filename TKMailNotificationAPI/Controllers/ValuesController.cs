@@ -1,39 +1,56 @@
-﻿using System;
+﻿using MailNotificationAPI.Concrete;
+using MailNotificationAPI.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using TKMail.Data.Entities;
+using TKMailNotificationAPI.Models;
 
 namespace MailNotificationAPI.Controllers
 {
+    [RoutePrefix("api/Email")]
     public class ValuesController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
+        private NotificationRepository _notificationRepository;
+
+        public ValuesController()
         {
-            return new string[] { "value1", "value2" };
+            _notificationRepository = new NotificationRepository();
         }
 
-        // GET api/values/5
-        public string Get(int id)
+        [Route("SendMail")]
+        [AllowAnonymous]
+        [HttpPost]
+        public IHttpActionResult SendMail([FromBody] TKMailNotificationAPI.Models.MailData mailData)
         {
-            return "value";
+
+            Response regreso = new Response();
+            try
+            {
+                regreso = _notificationRepository.SendMail(mailData);
+            }
+            catch (Exception ex)
+            {
+                LogMethods.writeException(ex, "TKMail.MailNotificationAPI.Controllers.ValuesController.SendMail");
+            }
+            finally
+            {
+                GC.Collect();
+            }
+            return Ok(regreso);
         }
 
-        // POST api/values
-        public void Post([FromBody] string value)
+        [Route("Ping")]
+        [AllowAnonymous]
+        [HttpGet]
+        public IHttpActionResult Ping()
         {
-        }
+            bool status = true;
 
-        // PUT api/values/5
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
+            return Ok(status);
         }
     }
 }
