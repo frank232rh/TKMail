@@ -284,6 +284,42 @@ namespace TKMail.Data.Concrete
             }
             return regreso;
         }
+        
+        public string GetGeneralConfiguration(string nameVariable)
+        {
+            string regreso = "";
+            try
+            {
+                using (TKMailContext ctx = new TKMailContext())
+                {
+                    ctx.Database.Connection.Open();
+
+                    var command = ctx.Database.Connection.CreateCommand();
+                    command.CommandText = "[Configuration].[GetGeneralConfigurationByKey]";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add(new SqlParameter("@NameVariable", nameVariable));
+
+                    var read = command.ExecuteReader();
+
+                    while (read.Read())
+                    {
+                        regreso = read.GetString(read.GetOrdinal("VariableValue"));
+                    }
+                    ctx.Database.Connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                regreso = "";
+                LogMethods.writeException(ex, "TKMail.Data.Concrete.MailRepository.GetGeneralConfiguration");
+            }
+            finally
+            {
+                GC.Collect();
+            }
+            return regreso;
+        }
 
     }
 }

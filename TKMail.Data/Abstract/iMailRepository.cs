@@ -15,5 +15,6 @@ namespace TKMail.Data.Abstract
         List<attach> GetAttach(int idMail);
         Response UpdateMail(int idMail, bool sent);
         List<eMailMessage> GetNotSentNotification();
+        string GetGeneralConfiguration(string nameVariable);
     }
 }
